@@ -1,0 +1,53 @@
+  <section class="text-center text-lg-start">
+    <style>
+      .cascading-right {
+        margin-right: -50px;
+      }
+  
+      @media (max-width: 991.98px) {
+        .cascading-right {
+          margin-right: 0;
+        }
+      }
+    </style>
+  
+    <!-- Jumbotron -->
+    <div class="container py-4">
+      <div class="row g-0 align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <div class="card cascading-right" style="
+              background: hsla(0, 0%, 100%, 0.55);
+              backdrop-filter: blur(30px);
+              ">
+            <div class="card-body p-5 shadow-5 text-center">
+                <h2 class="fw-bold mb-5">Iniciar sesión</h2>
+                <form role="form" [formGroup]="loginForm">
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input formControlName="email" type="email" id="form3Example3" class="form-control" placeholder="Correo electronico"
+                   [ngClass]="{'error': isTouchedField(loginForm, 'email')}" />
+                  <div class="text-danger" *ngIf="isTouchedField(loginForm, 'email')">{{getErrorsForm('email')}}</div>
+                </div>
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                  <input formControlName="password" type="password" id="form3Example4" class="form-control" placeholder="Contraseña" />
+                  <div class="text-danger" *ngIf="isTouchedField(loginForm, 'password')">{{getErrorsForm('password')}}</div>
+                </div>
+                
+                <!-- Submit button -->
+                <button  (click)="singIn()" type="button" class="btn btn-primary btn-block mb-4">Iniciar sesión</button>
+              </form>
+              <hr class="mb-3">
+              <button (click)="singUp()" type="button" class="btn btn-success btn-block mb-4"> Crear nueva cuenta</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <img src="https://s1.1zoom.me/b6246/182/Mountains_Audi_R8_Spyder_V10_2020_RWD_Red_Metallic_576549_600x800.jpg" class="w-100 rounded-4 shadow-4"
+            alt="" />
+        </div>
+      </div>
+    </div>
+    <!-- Jumbotron -->
+  </section>
+  <!-- Section: Design Block -->
