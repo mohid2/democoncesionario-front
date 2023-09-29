@@ -3,9 +3,12 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 import { LoginRequestDto } from 'src/app/core/dto/LoginRequestDto';
+import { ErrorsForm } from 'src/app/core/enums/errors-form';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { TokenService } from 'src/app/core/services/token.service';
 import { AppBaseComponent } from 'src/app/core/utils/AppBaseComponent';
+import { FromValidator } from 'src/app/core/utils/from-validator';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +22,8 @@ export class LoginComponent extends AppBaseComponent{
   constructor(private router:Router, private fb:FormBuilder, private authService: AuthService, private tokenService: TokenService){
     super();
     this.loginForm= this.fb.group({
-      email:['',[Validators.required,Validators.email]],
-      password:['',Validators.required]
+      email:['',[Validators.required,FromValidator.emailValidator()]],
+      password:['',[Validators.required,FromValidator.passwordValidator()]]
     })
   }
 
@@ -30,8 +33,6 @@ export class LoginComponent extends AppBaseComponent{
    
 
     if(this.loginForm.valid){
-
-      alert('todo ok');
 
       let email= this.loginForm.get('email').value
       let password= this.loginForm.get('password').value
@@ -47,8 +48,15 @@ export class LoginComponent extends AppBaseComponent{
 
      await this.router.navigateByUrl('/productos');
 
+     Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Ha iniciado sesion con exsito',
+      showConfirmButton: false,
+      timer: 3000
+    });
+
     }else{
-      alert('algo esta mal');
       this.loginForm.markAllAsTouched();
     }
   }
@@ -64,11 +72,13 @@ export class LoginComponent extends AppBaseComponent{
     if(this.isTouchedField(this.loginForm,field)){
       if(this.loginForm.get(field).hasError('required')){
 
-        message = 'El campo es requerido';
+        message = ErrorsForm.REQUIRED;
         
-      }else if(this.loginForm.get(field).hasError('email')){
-
-        message="El formato de correo es invalido"
+      }else if(this.loginForm.get(field).hasError('emailValidator')){
+        message= ErrorsForm.EMAIL;
+      }
+      else if(this.loginForm.get(field).hasError('passwordValidator')){
+        message= ErrorsForm.PASSWORD;
       }
     }
     return message

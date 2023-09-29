@@ -24,13 +24,15 @@
                 <form role="form" [formGroup]="loginForm">
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <input formControlName="email" type="email" id="form3Example3" class="form-control" placeholder="Correo electronico"
+                  <label class="form-label" for="form3Example1">Email</label>
+                  <input formControlName="email" type="email" id="form3Example1" class="form-control" placeholder="email@ejemplo.com"
                    [ngClass]="{'error': isTouchedField(loginForm, 'email')}" />
-                  <div class="text-danger" *ngIf="isTouchedField(loginForm, 'email')">{{getErrorsForm('email')}}</div>
+                  <div class="text-danger" *ngIf="isTouchedField(loginForm,'email')">{{getErrorsForm('email')}}</div>
                 </div>
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                  <input formControlName="password" type="password" id="form3Example4" class="form-control" placeholder="Contraseña" />
+                  <label class="form-label" for="form3Example2">Contraseña</label>
+                  <input formControlName="password" type="password" id="form3Example2" class="form-control" placeholder="******" />
                   <div class="text-danger" *ngIf="isTouchedField(loginForm, 'password')">{{getErrorsForm('password')}}</div>
                 </div>
                 
@@ -38,7 +40,12 @@
                 <button  (click)="singIn()" type="button" class="btn btn-primary btn-block mb-4">Iniciar sesión</button>
               </form>
               <hr class="mb-3">
-              <button (click)="singUp()" type="button" class="btn btn-success btn-block mb-4"> Crear nueva cuenta</button>
+              <div class="mb-4 text-center">
+                <span class="form-label">¿Aún no tienes una cuenta?</span>
+              </div>             
+              <div class="text-center">
+                <button (click)="singUp()" type="button" class="btn btn-success btn-block mb-4">Crear nueva cuenta</button>
+              </div>
             </div>
           </div>
         </div>

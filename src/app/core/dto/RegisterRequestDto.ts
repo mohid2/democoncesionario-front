@@ -8,4 +8,5 @@ export interface RegisterRequestDto{
     email: string;
     phoneNumber: string;
     password: string;
+
 }

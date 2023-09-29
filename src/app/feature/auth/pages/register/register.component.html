@@ -27,48 +27,65 @@
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input formControlName="lastname" type="text" id="form3Example1" class="form-control"  placeholder=" Nombre"/>
-                      <div class="text-danger" *ngIf="isTouchedField(registerForm, 'lastname')">{{getErrorsForm('lastname')}}</div>
+                      <label class="form-label" for="form3Example2">Nombre</label>
+                      <input formControlName="firstname" type="text" id="form3Example2" class="form-control" placeholder="Tu nombre" />
+                      <div class="text-danger" *ngIf="isTouchedField(registerForm, 'firstname')">{{getErrorsForm('firstname')}}</div>
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input formControlName="firstname" type="text" id="form3Example2" class="form-control" placeholder="Apellido" />
-                      <div class="text-danger" *ngIf="isTouchedField(registerForm, 'firstname')">{{getErrorsForm('firstname')}}</div>
+                      <label class="form-label" for="form3Example1">Apellido</label>
+                      <input formControlName="lastname" type="text" id="form3Example1" class="form-control"  placeholder="Tu apellido"/>
+                      <div class="text-danger" *ngIf="isTouchedField(registerForm, 'lastname')">{{getErrorsForm('lastname')}}</div>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                 <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input formControlName="dni" type="text" id="form3Example2" class="form-control" placeholder="DNI/NIE" />
+                      <label class="form-label" for="form3Example3">DNI/NIE</label>
+                      <input formControlName="dni" type="text" id="form3Example3" class="form-control" placeholder="xxxxxxxx" />
                       <div class="text-danger" *ngIf="isTouchedField(registerForm, 'dni')">{{getErrorsForm('dni')}}</div>
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                      <input formControlName="phoneNumber" type="text" id="form3Example2" class="form-control" placeholder="Numero de telefono" />
+                      <label class="form-label" for="form3Example4">Teléfono</label>
+                      <input formControlName="phoneNumber" type="text" id="form3Example4" class="form-control" placeholder="xxxxxxxxx" />
                       <div class="text-danger" *ngIf="isTouchedField(registerForm, 'phoneNumber')">{{getErrorsForm('phoneNumber')}}</div>
                     </div>
                   </div>
                 </div>
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <input formControlName="email" type="email" id="form3Example3" class="form-control" placeholder="Correo electronico" />
+                  <label class="form-label" for="form3Example5">Email</label>
+                  <input formControlName="email" type="email" id="form3Example5" class="form-control" placeholder="email@ejemplo.com" />
                   <div class="text-danger" *ngIf="isTouchedField(registerForm, 'email')">{{getErrorsForm('email')}}</div>
                 </div>
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                  <input formControlName="password" type="password" id="form3Example4" class="form-control" placeholder="Contraseña" />
+                  <label class="form-label" for="form3Example6">Contraseña ( mínimo 6 digitos )</label>
+                  <input formControlName="password" type="password" id="form3Example6" class="form-control" placeholder="******" />
                   <div class="text-danger" *ngIf="isTouchedField(registerForm, 'password')">{{getErrorsForm('password')}}</div>
                 </div>
+                 <!--confirm  Password input
+                 <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example7">Repetir contraseña</label>
+                  <input formControlName="confirmPassword"  type="password" id="form3Example7" class="form-control" placeholder="******" />
+                  <div class="text-danger" *ngIf="isTouchedField(registerForm, 'confirmPassword')">{{getErrorsForm('confirmPassword')}}</div>
+                </div> -->
                 <!-- Submit button -->
                 <button (click)="singUp()"  type="submit" class="btn btn-primary btn-block mb-4">
                     Registrarse
                 </button>
               </form>
               <hr class="mb-3">
-                <button (click)="singIn()" type="button" class="btn btn-success btn-block mb-4">Iniciar sesión</button>
+              <div class="mb-4 text-center">
+                <span class="form-label">¿Tienes una cuenta?</span>
+              </div>             
+              <div class="text-center">
+                <button (click)="singIn()" type="button" class="btn btn-success btn-block mb-4">Iniciar sesión</button>             
+              </div>
             </div>
           </div>
         </div>
