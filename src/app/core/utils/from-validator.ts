@@ -89,6 +89,18 @@ export class FromValidator {
         return null;
       };
     }
-  
+    static dateNotGreaterThanTodayValidator(): ValidatorFn {
+      return (control: AbstractControl): { [key: string]: any } | null => {
+        const selectedDate = new Date(control.value);
+        const currentDate = new Date();
+    
+        if (selectedDate > currentDate) {
+          return { dateGreaterThanToday: true };
+        }
+        
+        return null;
+      };
+    }
+
 }
 

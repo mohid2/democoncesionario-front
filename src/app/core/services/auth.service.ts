@@ -32,7 +32,7 @@ export class AuthService {
         alert('El usuario no existe.');
       }
       // Puedes manejar otros errores aquí si es necesario
-      return throwError(error.status);
+      return throwError(()=>error.status);
     })
    );
   }
@@ -49,8 +49,9 @@ export class AuthService {
          alert('El usuario ya existe.');
        }
        // Puedes manejar otros errores aquí si es necesario
-       return throwError(error.status);
+       return throwError(()=>error.status);
      })
     );
    }
+   
 }

@@ -1,0 +1,32 @@
+
+              <form role="form" [formGroup]="InfoAestheticForm" >
+                <!-- 2 column grid layout with text inputs for the first and last names -->
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="form3Example1">color</label>
+                      <input formControlName="color" type="text" id="form3Example1" class="form-control"  placeholder="Rojo"/>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="form3Example2">numberDoors</label>
+                      <input formControlName="numberDoors" type="text" id="form3Example2" class="form-control"  placeholder="5"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="form3Example3">numberSeat</label>
+                      <input formControlName="numberSeat" type="text" id="form3Example3" class="form-control" placeholder="5" />
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="form3Example4">imagePath</label>
+                      <input formControlName="imagePath" type="text" id="form3Example4" class="form-control" placeholder="2000" />
+                    </div>
+                  </div>
+                </div>
+              </form>

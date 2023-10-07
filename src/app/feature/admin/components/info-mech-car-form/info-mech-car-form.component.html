@@ -1,0 +1,54 @@
+
+              <form role="form" [formGroup]="InfoMechForm" >
+                <!-- 2 column grid layout with text inputs for the first and last names -->
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <label class="form-label" for="form3Example1">Caballos de fuerza</label>
+                        <input formControlName="horsepower" type="number" id="form3Example1" class="form-control"  placeholder="100 HP"/>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="form3Example2">Cilindrada del motor</label>
+                      <input formControlName="engineDisplacement" type="number" id="form3Example2" class="form-control"  placeholder="1500 cc"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label" for="form3Example3" >Transmisión</label>
+                    <select  class="form-select" for="form3Example3" aria-label="Default select example" formControlName="transmission" >
+                      <option *ngFor="let option of transmissionOptions" [value]="option" >{{option}}</option>
+                    </select>
+                  </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="form3Example4">Tipo de combustible</label>
+                      <select  class="form-select" for="form3Example4" aria-label="Default select example" formControlName="fuelType" >
+                        <option *ngFor="let option of fuelOptions" [value]="option" >{{option}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <label class="form-label" for="form3Example5">Tracción</label>
+                  <select  class="form-select" aria-label="Default select example"   for="form3Example5" formControlName="traction" >
+                    <option *ngFor="let option of tractionOptions" [value]="option" >{{option}}</option>
+                  </select>
+                </div>
+               </div>
+               <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <label class="form-label" for="form3Example6">dirección</label>
+                  <select  class="form-select" aria-label="Default select example"   for="form3Example6" formControlName="steering" >
+                    <option *ngFor="let option of steeringOptions" [value]="option" >{{option}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+              </form>

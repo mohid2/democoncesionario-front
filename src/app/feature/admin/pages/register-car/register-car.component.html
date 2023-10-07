@@ -1,0 +1,51 @@
+
+<div class="container py-4">
+  <h1 class="mb-4">Formulario de Registro de Coche</h1>
+<form role="form" [formGroup]="registerCarForm" class="mb-4">
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button btn btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Información básica
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <app-info-basic-car-form></app-info-basic-car-form>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button btn btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Informacion mecanica
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <app-info-mech-car-form></app-info-mech-car-form>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button btn btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Informacion estatica
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <app-info-aesthetic-car-form></app-info-aesthetic-car-form>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<div >
+  <div class="d-grid gap-2">
+    <button (click)="saveCar()" type="submit" class="btn btn-outline-success" type="button">Button</button>
+  </div>
+</div>
+</div>
+
+

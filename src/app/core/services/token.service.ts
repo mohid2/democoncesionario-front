@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { getCookie,setCookie } from 'typescript-cookie';
 import jwt_decode from "jwt-decode";
+import { JwtCostumerDto } from '../dto/jwt-costumer-dto';
 
 
 @Injectable({
@@ -18,17 +19,32 @@ export class TokenService {
     return getCookie('token');
   }
 
-  public decodeToken(): void{
+  public clearToken(): void {
+    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+  }
+
+  public getInfoToken(): JwtCostumerDto{
     var token = getCookie('token');;
     var decoded = jwt_decode(token);
- 
-    console.log(decoded);
- 
-
+  
     // decode header by passing in options (useful for when you need `kid` to verify a JWT):
-    var decodedHeader = jwt_decode(token, { header: true });
-    console.log(decodedHeader);
- 
-
+   return <JwtCostumerDto> decoded;
   }
+
+  public isTokenExpired(): boolean {
+    const infoToken = this.getInfoToken();
+
+    const expirationTimestampInSeconds = infoToken.exp;
+    const currentTimestampInSeconds = Math.floor(Date.now() / 1000);
+    if (expirationTimestampInSeconds < currentTimestampInSeconds) {
+      // El token ha caducado
+      return true;
+    } else {
+      // El token aún es válido
+      return false;
+    }  
+  }
+    
 }
+
+
