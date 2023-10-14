@@ -16,21 +16,25 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     
-    let token= this.tokenService.getToken();
+    let token = this.tokenService.getToken();
 
-
-    if(token && !this.tokenService.isTokenExpired()){
-      let authRequest=request.clone(
-        {
-          setHeaders: { Authorization: `Bearer ${token}`},
+    if (token && !this.tokenService.isTokenExpired()) {
+      let authRequest = request.clone({
+        setHeaders: { Authorization: `Bearer ${token}` },
       });
       return next.handle(authRequest);
-     
     }
+/** 
+    // Evitar redirección si la solicitud es para la página de inicio de sesión
+    if (request.url.includes('/autenticacion/inicio-sesion')) {
+      return next.handle(request);
+    }
+
     this.tokenService.clearToken();
     // Redirige a la página de inicio de sesión
     this.router.navigateByUrl('autenticacion/inicio-sesion');
-    
+    */
+
     return next.handle(request);
   }
 }

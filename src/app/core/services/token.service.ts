@@ -44,6 +44,11 @@ export class TokenService {
       return false;
     }  
   }
+  public removeToken():void{
+      // Lógica para eliminar la cookie de sesión
+      document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    
+  }
     
 }
 

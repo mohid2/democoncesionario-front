@@ -20,6 +20,12 @@ export class CarService {
   public getAllCars(): Observable<CarDto[]>{
     return this.http.get<CarDto[]>(this.apiURL.concat('/api/coches'));
   }
+  public getCarByBrand(brand: string): Observable<CarDto[]>{
+    return this.http.get<CarDto[]>(this.apiURL.concat('/api/coches/marcas/'+brand));
+  }
+  public getCarById(carCode: string): Observable<CarDto>{
+    return this.http.get<CarDto>(this.apiURL.concat('/api/coches/'+carCode));
+  }
 
   public saveCar(carDto: CarDto): Observable<CarDto>{
     return this.http.post<CarDto>(this.apiURL.concat('/api/coches'),carDto);

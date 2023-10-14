@@ -1,0 +1,44 @@
+<body>
+  <div class="container py-4">
+    <div class="card bg-light">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h4 class="m-0">Detalles del coche</h4>
+      </div>
+      <div class="card-body">
+        <div *ngIf="car" class="row">
+          <div class="col-md-6">
+            <img [src]="car.imagePath" class="card-img-top card-image" alt="Imagen del coche">
+          </div>
+          <div class="col-md-6">
+            <h2>Información general</h2>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Marca:</strong> {{car.carBrandDescription}}</li>
+              <li class="list-group-item"><strong>Referencia:</strong> {{car.reference}}</li>
+              <li class="list-group-item"><strong>Precio:</strong> {{car.price}}</li>
+              <li class="list-group-item"><strong>Año del modelo:</strong> {{car.modelYear}}</li>
+              <li class="list-group-item"><strong>Color:</strong> {{car.color}}</li>
+              <li class="list-group-item"><strong>Categoría:</strong> {{car.category}}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div *ngIf="car" class="row mt-4">
+          <div class="col-md-6">
+            <h2>Detalles técnicos</h2>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Potencia:</strong> {{car.horsepower}} HP</li>
+              <li class="list-group-item"><strong>Número de puertas:</strong> {{car.numberDoors}}</li>
+              <li class="list-group-item"><strong>Desplazamiento del motor:</strong> {{car.engineDisplacement}} cc</li>
+              <li class="list-group-item"><strong>Transmisión:</strong> {{car.transmission}}</li>
+              <li class="list-group-item"><strong>Tipo de combustible:</strong> {{car.fuelType}}</li>
+              <li class="list-group-item"><strong>Número de asientos:</strong> {{car.numberSeat}}</li>
+              <li class="list-group-item"><strong>Tracción:</strong> {{car.traction}}</li>
+              <li class="list-group-item"><strong>Dirección:</strong> {{car.steering}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+

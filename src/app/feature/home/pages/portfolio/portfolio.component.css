@@ -1,0 +1,110 @@
+/* Estilo base para las tarjetas de productos */
+.card {
+    margin-bottom: 26px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease-in-out;
+    overflow: hidden;
+  }
+  
+  /* Efecto de sombra en hover */
+  .card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilo para la imagen principal de la tarjeta */
+  .card .card-img-top {
+    height: 290px;
+    max-height: 290px;
+    overflow: hidden;
+    position: relative;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Estilo para la imagen de fondo en estado hover */
+  .card:hover .card-img-top::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    transition: background 0.3s ease-in-out;
+  }
+  .card:hover .card-img-top {
+    transform: scale(1.05); /* Ajusta el valor según la intensidad deseada */
+  }
+  
+  /* Estilo para los botones en la tarjeta */
+  .card .btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  /* Estilo para los íconos en los botones */
+  .card .btn img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  /* Estilo para los botones en estado hover */
+  .card .btn:hover {
+    color: #fe302f;
+  }
+  
+  /* Estilo para el título del producto */
+  .card .card-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+
+  /* Estilo para los botones de añadir/quitar del carrito */
+  .card .btn-add-to-cart {
+    background-color: #fe302f;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  /* Estilo para los botones de añadir/quitar del carrito en estado hover */
+  .card .btn-add-to-cart:hover {
+    background-color: #444444;
+    color: #ffffff;
+  }
+  
+  /* Estilo para el botón de quitar del carrito */
+  .card .btn-remove-from-cart {
+    background-color: #ff5733;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  /* Estilo para el botón de quitar del carrito en estado hover */
+  .card .btn-remove-from-cart:hover {
+    background-color: #444444;
+    color: #ffffff;
+  }
+  .header-separator {
+    margin-top: 20px; /* Ajusta la cantidad de margen superior según sea necesario */
+  }
+  .separator {
+    margin-top: 20px; /* Ajusta la cantidad de margen superior según sea necesario */
+  }
+  

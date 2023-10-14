@@ -4,7 +4,6 @@ import { FuelType } from 'src/app/core/enums/fuel-type';
 import { SteeringType } from 'src/app/core/enums/steering-type';
 import { TractionTypes } from 'src/app/core/enums/traction-types';
 import { TransmissionType } from 'src/app/core/enums/transmission-type';
-import { EnumBackService } from 'src/app/core/services/enum-back.service';
 
 @Component({
   selector: 'app-info-mech-car-form',

@@ -65,7 +65,6 @@ export class RegisterComponent extends AppBaseComponent {
         text: 'se ha creado el usuario con exsito',
       })
     }else{
-      alert('algo esta mal');
       this.registerForm.markAllAsTouched();
     }
 

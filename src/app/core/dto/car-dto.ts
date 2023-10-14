@@ -2,7 +2,8 @@ import { TractionTypes } from "../enums/traction-types"
 import { TransmissionType } from "../enums/transmission-type"
 
 export interface CarDto {
-    carBrandId: string
+    carCode?: number
+    carBrandDescription: string
     reference: string
     price: number
     modelYear: Date

@@ -12,5 +12,7 @@ export const authWithOutGuard: CanActivateFn = (route, state) => {
     router.navigateByUrl('autenticacion/inicio-sesion')
     return false;
   }
+  
   return true;
+
 };

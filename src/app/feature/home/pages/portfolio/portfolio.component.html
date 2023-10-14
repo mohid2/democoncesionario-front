@@ -1,3 +1,40 @@
 <header>
   <app-header-nav></app-header-nav>
 </header>
+<div class="separator"></div>
+<div class="container mt-4">
+  <div class="header-separator"></div>
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid  ">
+        <form class="d-flex ms-auto">
+          <input class="form-control me-2 " type="search" placeholder="Buscar por marca" aria-label="Search" [(ngModel)]="brand" (input)="onBrandInputChange()" name="brand">
+          <button (click)="searchByBrand()" class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+      </div>
+  </nav>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let car of cars">
+        <div class="card">
+          <img [src]="car.imagePath" class="card-img-top card-image" alt="Car Image">
+          <div class="card-body">
+            <h5 class="card-title">{{ car.carBrandDescription +' '+ car.reference + ' ' + (car.modelYear | date:'yyyy') }}</h5>
+            <p class="card-text">
+              <strong>Precio: </strong> {{ car.price | number:'1.2-2' }} €
+            </p>
+            <div class="card-buttons">
+              <button class="btn btn-primary" (click)="addCarsShopingCart(car)">
+                <img [src]="'assets/icons/anadir-al-carrito.png'" class="img-responsive" style="width: 30px; height: 30px;">
+              </button>
+              <button class="btn btn-danger" (click)="deleteCarsShopingCart(car)">
+                <img [src]="'assets/icons/quitar-del-carrito.png'" class="img-responsive" style="width: 30px; height: 30px;">
+              </button>
+                <a class="btn btn-primary" [routerLink]="['../productos/detalles-coche', car.carCode]" class="btn btn-primary">Ver detalles</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
