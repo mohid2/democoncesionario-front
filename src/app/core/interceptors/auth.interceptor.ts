@@ -24,7 +24,7 @@ export class AuthInterceptor implements HttpInterceptor {
       });
       return next.handle(authRequest);
     }
-/** 
+
     // Evitar redirección si la solicitud es para la página de inicio de sesión
     if (request.url.includes('/autenticacion/inicio-sesion')) {
       return next.handle(request);
@@ -33,8 +33,7 @@ export class AuthInterceptor implements HttpInterceptor {
     this.tokenService.clearToken();
     // Redirige a la página de inicio de sesión
     this.router.navigateByUrl('autenticacion/inicio-sesion');
-    */
-
+    
     return next.handle(request);
   }
 }

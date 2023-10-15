@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { authWithOutGuard } from '../core/guard/auth-without.guard';
-import { authWithGuard } from '../core/guard/auth-with.guard';
 import { authWithRoleAdminGuard} from '../core/guard/auth-with-role-admin.guard';
 
 const routes: Routes = [
@@ -18,6 +16,11 @@ const routes: Routes = [
     path:'admin',
     canActivate:[authWithRoleAdminGuard],
     loadChildren: () => import("./admin/admin.module").then(admin => admin.AdminModule)
+
+  },
+  {
+    path:'customer',
+    loadChildren: () => import("./customer/customer.module").then(customer => customer.CustomerModule)
 
   }
 ];
