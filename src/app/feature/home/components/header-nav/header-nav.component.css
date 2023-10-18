@@ -17,4 +17,10 @@
     padding: 4px 8px; /* Ajusta el espaciado según tus preferencias */
     border-radius: 50%;
   }
+  .round-image {
+    width: 80px; /* Ajusta el tamaño según tus necesidades */
+    height: 50px; /* Ajusta el tamaño según tus necesidades */
+    object-fit: cover; /* Esto asegurará que la imagen se ajuste bien al círculo */
+    margin-right: 20px;
+  }
   

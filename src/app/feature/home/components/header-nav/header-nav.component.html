@@ -1,19 +1,16 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top"c>
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Tu coche</a>
+    <img [src]="'assets/icons/coche.png'" class="round-image">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" routerLink="../productos">Home</a>
+          <a class="nav-link" routerLink="/productos/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          <a class="nav-link" routerLink="/admin/registrar-coche">Vender tu coche</a>
         </li>
       </ul>
       <ul class="navbar-nav navbar-right">
@@ -23,7 +20,7 @@
         <li class="nav-item" *ngIf="isLoggedIn">
           <a class="nav-link" routerLink="../productos/carrito" [ngStyle]="{ 'pointer-events': isCartEmpty ? 'none' : 'auto' }">
             <div class="cart-icon-container">
-              <img [src]="'assets/icons/shopping_icon_154845.png'" class="img-responsive cart-icon">
+              <img [src]="'assets/icons/carrito-de-compras.png'" class="img-responsive cart-icon">
               <span class="badge bg-primary cart-badge">{{ cartItemCount }}</span>
             </div>
           </a>
@@ -33,7 +30,7 @@
             {{ nameCustomer }}
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item active" routerLink="../customer">Perfil</a></li>
+            <li><a class="dropdown-item active" routerLink="/customer/">Perfil</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" (click)="logout()" type="submit">Cerrar Sesión</a></li>
           </ul>

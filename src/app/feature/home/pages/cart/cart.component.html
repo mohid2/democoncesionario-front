@@ -1,3 +1,6 @@
+<header class="header-after-navbar">
+    <app-header-nav></app-header-nav>
+</header>
 <body>
   <div class="container py-4">
       <div class="card bg-light">
@@ -11,15 +14,15 @@
                           <h5 th:text="'Datos del cliente'"></h5>
                           <div>
                               <strong>Nombre: </strong>
-                              <span >{{costumer.firstname}}</span>
+                              <span >{{customer.firstname}}</span>
                           </div>
                           <div>
                               <strong>Apellido: </strong>
-                              <span >{{costumer.lastname}}</span>
+                              <span >{{customer.lastname}}</span>
                           </div>
                           <div>
                               <strong>Email: </strong>
-                              <span >{{costumer.sub}}</span>
+                              <span >{{customer.sub}}</span>
                           </div>
                       </div>
                   </div>
@@ -52,7 +55,44 @@
               <hr>
               <h5 class="float-right">Total: {{calculateTotal() | number:'1.2-2' }} €</h5>
           </div>
-          <button type="submit" class="btn btn-primary btn-sm2">Comprar</button>
-
+          <button type="button" class="btn btn-primary btn-sm2" data-bs-toggle="modal" data-bs-target="#compra" (click)="onPurchase()">Comprar</button>
+          <div class="modal fade" id="compra" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title">Detalles compra </h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p>Nº Factura: {{ PurchaseResponse?.invoiceNumber }}</p>
+                  <p>DNI: {{ PurchaseResponse?.customerDni }}</p>
+                  <p>Nombre: {{customer.firstname}}</p>
+                  <p>Apellido: {{customer.lastname}}</p>
+                  <p>Email: {{customer.sub}}</p>
+                  <p>Fecha compra: {{ PurchaseResponse?.date | date }}</p>
+                  <table class="table table-sm table-striped table-hover">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio Unitario</th>
+                        <th scope="col">Importe</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let carPurchase of PurchaseResponse?.carPurchaseDTOs">
+                        <td>{{ carPurchase.carBrandDescription+' '+carPurchase.referenceCar }}</td>
+                        <td>{{ carPurchase.quantity }}</td>
+                        <td>{{ carPurchase.price}}</td>
+                        <td>{{ carPurchase.total | number:'1.2-2' }} €</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p>Metodo de pago: {{ PurchaseResponse?.paymentMethod }}</p>
+                  <p>Total pagado: {{ PurchaseResponse?.total | number:'1.2-2' }} €</p>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
   </body>

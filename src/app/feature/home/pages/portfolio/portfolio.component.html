@@ -1,6 +1,7 @@
-<header>
+<header class="header-after-navbar">
   <app-header-nav></app-header-nav>
 </header>
+<body>
 <div class="separator"></div>
 <div class="container mt-4">
   <div class="header-separator"></div>
@@ -16,7 +17,7 @@
     <div class="row">
       <div class="col-md-4" *ngFor="let car of cars">
         <div class="card">
-          <img [src]="car.imagePath" class="card-img-top card-image" alt="Car Image">
+         <a [routerLink]="['../productos/detalles-coche', car.carCode]" > <img [src]="car.imagePath" class="card-img-top card-image" alt="Car Image"></a>
           <div class="card-body">
             <h5 class="card-title">{{ car.carBrandDescription +' '+ car.reference + ' ' + (car.modelYear | date:'yyyy') }}</h5>
             <p class="card-text">
@@ -29,7 +30,6 @@
               <button class="btn btn-danger" (click)="deleteCarsShopingCart(car)">
                 <img [src]="'assets/icons/quitar-del-carrito.png'" class="img-responsive" style="width: 30px; height: 30px;">
               </button>
-                <a class="btn btn-primary" [routerLink]="['../productos/detalles-coche', car.carCode]" class="btn btn-primary">Ver detalles</a>
               </div>
             </div>
           </div>
@@ -37,4 +37,5 @@
       </div>
     </div>
   </div>
+</body>
   

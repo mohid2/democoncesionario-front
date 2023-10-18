@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { CarDto } from '../dto/car-dto';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
-import { TractionTypes } from '../enums/traction-types';
 
 
 @Injectable({

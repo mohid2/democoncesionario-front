@@ -7,6 +7,7 @@ import { InfoBasicCarFormComponent } from './components/info-basic-car-form/info
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InfoMechCarFormComponent } from './components/info-mech-car-form/info-mech-car-form.component';
 import { InfoAestheticCarFormComponent } from './components/info-aesthetic-car-form/info-aesthetic-car-form.component';
+import { HomeModule } from '../home/home.module';
 
 
 @NgModule({
@@ -14,13 +15,14 @@ import { InfoAestheticCarFormComponent } from './components/info-aesthetic-car-f
     RegisterCarComponent,
     InfoBasicCarFormComponent,
     InfoMechCarFormComponent,
-    InfoAestheticCarFormComponent
+    InfoAestheticCarFormComponent,
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HomeModule
   ]
 })
 export class AdminModule { }

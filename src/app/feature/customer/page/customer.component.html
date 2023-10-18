@@ -1,9 +1,23 @@
-<div *ngIf="customer" class="customer-details">
-  <h2>Customer Details</h2>
+<header class="header-after-navbar">
+  <app-header-nav></app-header-nav>
+</header>
+<div class="container py-4">
+  <div class="card bg-light">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h4 class="m-0">Datos del perfil</h4>
+    </div>
+    <div class="card-body">
+      <div *ngIf="customer" class="row">
+        <div class="col-md-6">
+  <h2></h2>
   <p><strong>DNI:</strong> {{ customer.dni }}</p>
-  <p><strong>First Name:</strong> {{ customer.firstname }}</p>
-  <p><strong>Last Name:</strong> {{ customer.lastname }}</p>
+  <p><strong>Nombre:</strong> {{ customer.firstname }}</p>
+  <p><strong>Apellido:</strong> {{ customer.lastname }}</p>
   <p><strong>Email:</strong> {{ customer.email }}</p>
-  <p><strong>Phone Number:</strong> {{ customer.phoneNumber }}</p>
+  <p><strong>Número de teléfono:</strong> {{ customer.phoneNumber }}</p>
   <p><strong>Role:</strong> {{ customer.role }}</p>
+</div>
+      </div>
+    </div>
+  </div>
 </div>

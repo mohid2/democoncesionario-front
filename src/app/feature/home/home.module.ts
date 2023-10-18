@@ -7,6 +7,7 @@ import { HeaderNavComponent } from './components/header-nav/header-nav.component
 import { CartComponent } from './pages/cart/cart.component';
 import { FormsModule } from '@angular/forms';
 import { CarDetailsComponent } from './pages/car/car-details/car-details.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -14,12 +15,14 @@ import { CarDetailsComponent } from './pages/car/car-details/car-details.compone
     PortfolioComponent,
     HeaderNavComponent,
     CartComponent,
-    CarDetailsComponent
+    CarDetailsComponent,
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    FormsModule
-  ]
+    FormsModule,
+    MatDialogModule
+  ],
+  exports:[HeaderNavComponent]
 })
 export class HomeModule { }
