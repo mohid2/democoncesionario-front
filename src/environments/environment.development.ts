@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://democoncesionario-production.up.railway.app/'
+    apiUrl: 'https://democoncesionario-production.up.railway.app'
   };
